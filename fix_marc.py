@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 André Wendler
 """
 Reparatur und Pruefung kaputter ISO-2709-/MARC21-Dateien aus dem Divibib-Export.
 

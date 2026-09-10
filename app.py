@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 André Wendler
 """
 Streamlit-Oberflaeche fuer die Reparatur kaputter Divibib-MARC21-Exporte.
 
