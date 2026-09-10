@@ -1,0 +1,10 @@
+[browser]
+# keine Nutzungsstatistik an Streamlit senden
+gatherUsageStats = false
+
+[server]
+# Uploads bleiben im Arbeitsspeicher; Limit in MB
+maxUploadSize = 50
+
+[theme]
+base = "light"

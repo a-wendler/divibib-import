@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# MARC-Daten: weder die Exporte noch die Reparatur-Ergebnisse
+# gehoeren ins Repository.
+*.mrc
+*.marc

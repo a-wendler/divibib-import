@@ -1,0 +1,4 @@
+# MARC-Dateien sind Binaerdaten (enthalten 0x1C-0x1F als Steuerzeichen).
+# Ohne diese Regel wuerde eine CRLF-Konvertierung die Saetze zerstoeren.
+*.mrc  binary
+*.marc binary
