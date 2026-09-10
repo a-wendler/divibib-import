@@ -17,6 +17,25 @@ import streamlit as st
 
 import fix_marc
 
+HAFTUNG_KURZ = (
+    "**Nutzung auf eigene Gefahr.** Diese Software wird ohne jede Gewaehrleistung "
+    "bereitgestellt („as is“). Fuer Schaeden aus ihrer Nutzung – insbesondere "
+    "durch fehlerhafte oder versehentlich geloeschte Katalogdaten – wird keine "
+    "Haftung uebernommen."
+)
+
+HAFTUNG_LANG = (
+    "- Es wird **nicht zugesichert**, dass eine reparierte Datei inhaltlich korrekt, "
+    "vollstaendig oder fuer einen bestimmten Zweck geeignet ist. Das Werkzeug stellt "
+    "die Satzstruktur wieder her; es kann fehlende oder falsche Daten weder erkennen "
+    "noch ergaenzen.\n"
+    "- Die Pruefung mit pymarc belegt die **formale** Konformitaet zu MARC21/ISO 2709. "
+    "Sie ist keine Aussage ueber die Richtigkeit der bibliografischen Angaben.\n"
+    "- Vor einem produktiven Import gehoeren die Ergebnisse geprueft und der "
+    "Zielbestand gesichert.\n\n"
+    "Es gilt die MIT-Lizenz; der vollstaendige Text liegt dem Projekt als `LICENSE` bei."
+)
+
 st.set_page_config(page_title="Divibib-MARC-Reparatur", page_icon="📚", layout="wide")
 
 st.title("📚 Divibib-MARC-Reparatur")
@@ -46,6 +65,12 @@ with st.sidebar:
         "9. Datei-Terminator `0x1C` am Dateiende"
     )
     vorschau_an = st.checkbox("Satzvorschau anzeigen", value=True)
+
+# Der Haftungshinweis steht in der Hauptspalte, nicht in der Sidebar:
+# Streamlit klappt die Sidebar bei schmalem Fenster automatisch ein.
+st.warning(HAFTUNG_KURZ)
+with st.expander("Haftungsausschluss im Detail"):
+    st.markdown(HAFTUNG_LANG)
 
 hochgeladen = st.file_uploader(
     "MARC-Dateien auswaehlen",
@@ -172,4 +197,9 @@ for datei in hochgeladen:
         mime="application/marc",
         type="primary" if ergebnis['ok'] else "secondary",
         key="dl_" + datei.name,
+    )
+    st.caption(
+        "Ohne Gewaehr: die Pruefung belegt die formale MARC21-Konformitaet, nicht die "
+        "inhaltliche Richtigkeit. Vor dem produktiven Import Ergebnis pruefen und "
+        "Zielbestand sichern."
     )
