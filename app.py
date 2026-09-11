@@ -121,7 +121,7 @@ for datei in hochgeladen:
         if vorschau_an:
             zeilen = fix_marc.preview_records(roh)
             if zeilen:
-                st.dataframe(zeilen, use_container_width=True, hide_index=True)
+                st.dataframe(zeilen, width='stretch', hide_index=True)
         continue
 
     if befund['defekte']:
@@ -186,7 +186,7 @@ for datei in hochgeladen:
         zeilen = fix_marc.preview_records(neu)
         if zeilen:
             st.markdown("**5. Vorschau (erste %d Saetze)**" % len(zeilen))
-            st.dataframe(zeilen, use_container_width=True, hide_index=True)
+            st.dataframe(zeilen, width='stretch', hide_index=True)
 
     # -------------------------------------------------------------- Download
     name = datei.name.rsplit('.', 1)[0] + "_fixed.mrc"
